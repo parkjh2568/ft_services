@@ -6,7 +6,7 @@ WHITE="\033[0m"
 
 echo $RED
 echo $BOLD
-echo  "start builde minikube(virtualbox)"
+echo  "Start Build Minikube(Virtualbox)"
 echo $WHITE
 
 export MINIKUBE_HOME=~/goinfre
@@ -21,5 +21,5 @@ echo "doing symlinks"
 rm -rf ~/.minikube
 ln -sf ~/goinfre/.minikube ~/.minikube
 
-echo  "done starting minikube"
+echo  "Done"
 echo $WHITE
