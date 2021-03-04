@@ -1,0 +1,42 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	return 301 https://$host$request_uri;
+}
+
+server {
+		listen 443 ssl;
+		listen [::]:443 ssl;
+
+		ssl on;
+		ssl_certificate /etc/ssl/certs/localhost.dev.crt;
+		ssl_certificate_key /etc/ssl/private/localhost.dev.key;
+
+		root /var/www/html;
+	
+		index index.html index.htm index.php;
+		
+		server_name _;
+
+ 		location / {
+			try_files $uri $uri/ =404;
+		}
+
+		location /wordpreww/ {
+			return 307	https://$host:5050/;
+		}
+		**location ~ \.php$**	
+		location /phpmyadmin/ {
+			proxy_pass	https://phpmyadmin:5000/;
+
+		#	include snippets/fastcgi-php.conf;
+		#	fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
+
+
+		}
+
+		location /grafana/ {
+			proxy_pass	https://grafana:3000/;
+		}
+}
