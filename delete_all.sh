@@ -15,10 +15,12 @@ echo $RED
 echo $BOLD
 echo  "Stop Container & Delete Images"
 echo $WHITE
-
+docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 
-docker rmi $(docker images alpine -q)
+
+docker rmi -f $(docker images nginx -q)
+docker rmi -f $(docker images alpine -q)
 
 rm ./srcs/yaml_active/*
 

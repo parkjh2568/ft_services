@@ -1,0 +1,7 @@
+1. docker ps를 이용해서 포트번호 (ex:32770)을 알아낸다
+2. ssh root@localhost -p "포트번호"를적어서 포트에 접속
+3. 패스워드 치라고 나오는데 dockerfile에 작성한 비밀번호(여기선 junhypar)입력하면
+4. nginx alpine 컨테이너에 접속 성공^오^
+
+
+ps -ef 에 사용자랑 ㅁ커멘드 입력로그 확인 가능
