@@ -33,6 +33,7 @@ ln -sf ~/goinfre/.minikube ~/.minikube
 minikube addons enable metrics-server
 minikube addons enable dashboard
 minikube addons enable metallb
+eval $(minikube docker-env)
 echo $WHITE
 
 echo $RED
@@ -40,7 +41,7 @@ echo $BOLD
 echo "Install Alpine"
 echo $WHITE
 
-docker pull alpine
+docker pull alpine:3.12
 
 echo $RED
 echo $BOLD
@@ -60,10 +61,14 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manife
 
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" #스피커간의 통신을 암호화한다는 말
 
-sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/yaml_format/metalLB-format.yaml > ./srcs/yaml_active/metalLB.yaml
+ sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/yaml_format/metalLB-format.yaml > ./srcs/yaml_active/metalLB.yaml
+cp ./srcs/yaml_format/metalLB-format.yaml ./srcs/yaml_active/metalLB.yaml
+cp ./srcs/yaml_format/nginx_deployment-format.yaml ./srcs/yaml_active/nginx_d.yaml
+cp ./srcs/yaml_format/nginx_service-format.yaml ./srcs/yaml_active/nginx_s.yaml
 
 kubectl apply -f ./srcs/yaml_active/metalLB.yaml
-
+kubectl apply -f ./srcs/yaml_active/nginx_d.yaml
+kubectl apply -f ./srcs/yaml_active/nginx_s.yaml
 
 echo $RED
 echo $BOLD

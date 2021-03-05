@@ -9,6 +9,8 @@ echo $BOLD
 echo  "Stop Minikube"
 echo $WHITE
 
+kubectl delete -f ./srcs/yaml_active/metalLB.yaml
+kubectl delete -f ./srcs/yaml_active/nginx.yaml
 minikube delete
 
 echo $RED
