@@ -11,6 +11,7 @@ echo $WHITE
 
 kubectl delete -f ./srcs/yaml_active/metalLB.yaml
 kubectl delete -f ./srcs/yaml_active/nginx.yaml
+kubectl delete -f ./srcs/yaml_active/ftps.yaml
 minikube delete
 
 echo $RED
@@ -20,9 +21,7 @@ echo $WHITE
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 
-
-docker rmi -f $(docker images nginx -q)
-docker rmi -f $(docker images alpine -q)
+docker rmi -f $(docker images -q)
 
 rm ./srcs/yaml_active/*
 

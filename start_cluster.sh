@@ -11,9 +11,12 @@ echo $WHITE
 
 export MINIKUBE_HOME=~/goinfre
 
+docker pull k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
+
 minikube delete
 minikube start --driver=virtualbox
 
+eval $(minikube docker-env)
 MINIKUBE_IP=$(minikube ip)
 
 echo $RED
@@ -33,7 +36,6 @@ ln -sf ~/goinfre/.minikube ~/.minikube
 minikube addons enable metrics-server
 minikube addons enable dashboard
 minikube addons enable metallb
-eval $(minikube docker-env)
 echo $WHITE
 
 echo $RED
@@ -49,6 +51,8 @@ echo "Docker Build"
 echo $WHITE
 
 docker build -t nginx srcs/nginx #> /dev/null 2>&1 ;;> /dev/null은 이과정의 메시지를 화면에표시하지않게해주는 명령어 2>&1 은 이과정중 나오는 에러메시지까지 다 가려주는 커멘드(안쓸꺼임)
+docker build -t ftps srcs/ftps
+
 
 echo $RED
 echo $BOLD
@@ -62,13 +66,13 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manife
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" #스피커간의 통신을 암호화한다는 말
 
  sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/yaml_format/metalLB-format.yaml > ./srcs/yaml_active/metalLB.yaml
-cp ./srcs/yaml_format/metalLB-format.yaml ./srcs/yaml_active/metalLB.yaml
-cp ./srcs/yaml_format/nginx_deployment-format.yaml ./srcs/yaml_active/nginx_d.yaml
-cp ./srcs/yaml_format/nginx_service-format.yaml ./srcs/yaml_active/nginx_s.yaml
+ sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/yaml_format/ftps-format.yaml > ./srcs/yaml_active/ftps.yaml
+#cp ./srcs/yaml_format/metalLB-format.yaml ./srcs/yaml_active/metalLB.yaml
+cp ./srcs/yaml_format/nginx-format.yaml ./srcs/yaml_active/nginx.yaml
 
 kubectl apply -f ./srcs/yaml_active/metalLB.yaml
-kubectl apply -f ./srcs/yaml_active/nginx_d.yaml
-kubectl apply -f ./srcs/yaml_active/nginx_s.yaml
+kubectl apply -f ./srcs/yaml_active/nginx.yaml
+kubectl apply -f ./srcs/yaml_active/ftps.yaml
 
 echo $RED
 echo $BOLD

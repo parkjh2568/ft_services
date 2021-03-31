@@ -1,7 +1,7 @@
 #!/bin/sh
 
-mkdir -p /ftps/sanam
-adduser --home=/ftps/sanam -D sanam
+mkdir -p /ftps/junhypar
+adduser --home=/ftps/junhypar -D junhypar
 
 echo "junhypar:junhypar" | chpasswd
 echo "junhypar" >> etc/vsftpd/vsftpd.userlist

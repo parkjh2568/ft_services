@@ -30,14 +30,16 @@ COPY	/srcs/index.html	/var/www/html/
 COPY	/srcs/ssl_params.conf	/etc/nginx/
 
 #ssh키 설정
-RUN		sed 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' -i /etc/ssh/sshd_config \
-		&& echo 'root:junhypar' | chpasswd \
-		&& ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa\
+RUN adduser -D junhypar
+RUN echo "junhypar:junhypar"|chpasswd
+
+#RUN		sed 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' -i /etc/ssh/sshd_config \
+#		&& echo 'root:junhypar' | chpasswd 
+
+RUN		 ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa\
 		&& ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa\
 		&& mkdir -p /var/run/sshd
-#RUN adduser -D junhypar
-#RUN echo "junhypar:junhypar"|chpasswd
-#RUN mkdir -p /run/nginx
+
 
 
 COPY	./srcs/start.sh		./temp/
