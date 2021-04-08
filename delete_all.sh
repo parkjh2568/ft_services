@@ -14,6 +14,7 @@ kubectl delete -f ./srcs/yaml_active/nginx.yaml
 kubectl delete -f ./srcs/yaml_active/ftps.yaml
 kubectl delete -f ./srcs/yaml_active/mysql.yaml
 kubectl delete -f ./srcs/yaml_active/wordpress.yaml
+kubectl delete -f ./srcs/yaml_active/phpmyadmin.yaml
 minikube delete
 
 echo $RED
@@ -27,6 +28,7 @@ docker rmi -f $(docker images nginx -q)
 docker rmi -f $(docker images wordpress -q)
 docker rmi -f $(docker images ftps -q)
 docker rmi -f $(docker images mysql -q)
+docker rmi -f $(docker images phpmyadmin -q)
 docker rmi -f $(docker images alpine -q)
 
 rm ./srcs/yaml_active/*

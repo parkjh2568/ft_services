@@ -1,7 +1,8 @@
 FROM alpine:3.12.0
-
+#한국에서 속도가 빠른 mirror페이지에서 apk add 작업
+sed -i "s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g" /etc/apk/repositories
 RUN apk update \
-		&& apk --update --no-cache add nginx \
+		&& apk add nginx \
 				php7 php7-fpm php7-mbstring php7-session \
 				php7-common php7-iconv php7-json php7-gd php7-curl php7-xml \
 				php7-mysqli php7-imap php7-cgi fcgi php7-pdo php7-pdo_mysql \
