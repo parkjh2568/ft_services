@@ -4,7 +4,7 @@ FROM	alpine:3.12
 #필요항목설치
 RUN		apk update
 RUN		apk add nginx
-RUN		apk add openssh
+#RUN		apk add openssh
 RUN		apk add openssl
 RUN		mkdir -p /run/nginx
 
@@ -24,21 +24,21 @@ RUN		chmod 600 etc/ssl/certs/localhost.dev.crt etc/ssl/private/localhost.dev.key
 #RUN		chown -R www:www /www
 #RUN		/etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
 COPY	/srcs/nginx.conf /etc/nginx/
-COPY	/srcs/default.conf /etc/nginx/conf.d
+#COPY	/srcs/default.conf /etc/nginx/conf.d
 
-COPY	/srcs/index.html	/var/www/html/
+#COPY	/srcs/index.html	/var/www/html/
 COPY	/srcs/ssl_params.conf	/etc/nginx/
 
 #ssh키 설정
-RUN adduser -D junhypar
-RUN echo "junhypar:junhypar"|chpasswd
+#RUN adduser -D junhypar
+#RUN echo "junhypar:junhypar"|chpasswd
 
 #RUN		sed 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' -i /etc/ssh/sshd_config \
 #		&& echo 'root:junhypar' | chpasswd 
 
-RUN		 ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa\
-		&& ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa\
-		&& mkdir -p /var/run/sshd
+#RUN		 ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa\
+#		&& ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa\
+#		&& mkdir -p /var/run/sshd
 
 
 
