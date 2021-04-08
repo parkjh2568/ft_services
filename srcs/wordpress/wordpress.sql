@@ -111,10 +111,10 @@ CREATE TABLE `wp_options` (
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (1, 'siteurl', 'http://192.168.99.100:5050', 'yes'),
 (2, 'home', 'http://192.168.99.100:5050', 'yes'),
-(3, 'blogname', 'honlee', 'yes'),
+(3, 'blogname', 'junhypar', 'yes'),
 (4, 'blogdescription', 'Just another WordPress site', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
-(6, 'admin_email', 'kij753@naver.com', 'yes'),
+(6, 'admin_email', 'pjh2568@naver.com', 'yes'),
 (7, 'start_of_week', '1', 'yes'),
 (8, 'use_balanceTags', '0', 'yes'),
 (9, 'use_smilies', '1', 'yes'),
@@ -417,7 +417,7 @@ CREATE TABLE `wp_usermeta` (
 --
 
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
-(1, 1, 'nickname', 'honlee'),
+(1, 1, 'nickname', 'junhypar'),
 (2, 1, 'first_name', ''),
 (3, 1, 'last_name', ''),
 (4, 1, 'description', ''),
@@ -435,9 +435,9 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (16, 1, 'session_tokens', 'a:1:{s:64:\"d553245ccb0565cc1959a2161478789f6c1af2549fc00fdd7190af9753512469\";a:4:{s:10:\"expiration\";i:1616325682;s:2:\"ip\";s:10:\"172.17.0.1\";s:2:\"ua\";s:82:\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:72.0) Gecko/20100101 Firefox/72.0\";s:5:\"login\";i:1616152882;}}'),
 (17, 1, 'wp_dashboard_quick_press_last_post_id', '4'),
 (18, 1, 'community-events-location', 'a:1:{s:2:\"ip\";s:10:\"172.17.0.0\";}'),
-(19, 2, 'nickname', 'hontwo'),
-(20, 2, 'first_name', 'hontwoo'),
-(21, 2, 'last_name', 'lee'),
+(19, 2, 'nickname', 'junhy2'),
+(20, 2, 'first_name', 'junhy2'),
+(21, 2, 'last_name', 'par'),
 (22, 2, 'description', ''),
 (23, 2, 'rich_editing', 'true'),
 (24, 2, 'syntax_highlighting', 'true'),
@@ -449,9 +449,9 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (30, 2, 'wp_capabilities', 'a:1:{s:10:\"subscriber\";b:1;}'),
 (31, 2, 'wp_user_level', '0'),
 (32, 2, 'dismissed_wp_pointers', ''),
-(33, 3, 'nickname', 'honthree'),
-(34, 3, 'first_name', 'honthree'),
-(35, 3, 'last_name', 'lee'),
+(33, 3, 'nickname', 'junhy3'),
+(34, 3, 'first_name', 'junhy3'),
+(35, 3, 'last_name', 'par'),
 (36, 3, 'description', ''),
 (37, 3, 'rich_editing', 'true'),
 (38, 3, 'syntax_highlighting', 'true'),
@@ -488,9 +488,9 @@ CREATE TABLE `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'honlee', '$P$Bwm48DzaYQHDqr8.y64LWFhwd3T2mA/', 'honlee', 'kij753@naver.com', 'http://192.168.99.100:5050', '2021-03-19 11:18:39', '', 0, 'honlee'),
-(2, 'hontwo', '$P$BAy.XBCOtyc0AGg/fraGagxBUt.lJK0', 'hontwo', 'hontwo@naver.com', '', '2021-03-19 11:21:48', '1616152908:$P$BOc8/GwqdBE04KmrVJbaHPE2ckkWYH0', 0, 'hontwoo lee'),
-(3, 'honthree', '$P$BOfGzmynTIHBE/.Uiceb6v7999uW9H1', 'honthree', 'honthree@naver.com', '', '2021-03-19 11:22:05', '1616152925:$P$BXxSL8KdUUC5c.5d9pBp9ZyvtHt2dG/', 0, 'honthree lee');
+(1, 'junhypar', '$P$Bwm48DzaYQHDqr8.y64LWFhwd3T2mA/', 'junhypar', 'pjh2568@naver.com', 'http://192.168.99.100:5050', '2021-03-19 11:18:39', '', 0, 'junhypar'),
+(2, 'junhy2', '$P$BAy.XBCOtyc0AGg/fraGagxBUt.lJK0', 'junhy2', 'junhy2@naver.com', '', '2021-03-19 11:21:48', '1616152908:$P$BOc8/GwqdBE04KmrVJbaHPE2ckkWYH0', 0, 'junhy2 par'),
+(3, 'junhy3', '$P$BOfGzmynTIHBE/.Uiceb6v7999uW9H1', 'junhy3', 'junhy3@naver.com', '', '2021-03-19 11:22:05', '1616152925:$P$BXxSL8KdUUC5c.5d9pBp9ZyvtHt2dG/', 0, 'junhy3 par');
 
 --
 -- 덤프된 테이블의 인덱스
