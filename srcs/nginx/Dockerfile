@@ -1,10 +1,8 @@
 FROM	alpine:3.12
 
-#한국에서 속도가 빠른 mirror페이지에서 apk add 작업
-sed -i "s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g" /etc/apk/repositories
 #필요항목설치
 RUN		apk update
-RUN		apk add nginx
+RUN		apk add nginx 
 #RUN		apk add openssh
 RUN		apk add openssl
 RUN		mkdir -p /run/nginx

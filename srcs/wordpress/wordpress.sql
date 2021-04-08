@@ -111,10 +111,10 @@ CREATE TABLE `wp_options` (
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (1, 'siteurl', 'http://192.168.99.100:5050', 'yes'),
 (2, 'home', 'http://192.168.99.100:5050', 'yes'),
-(3, 'blogname', 'junhypar', 'yes'),
+(3, 'blogname', 'honlee', 'yes'),
 (4, 'blogdescription', 'Just another WordPress site', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
-(6, 'admin_email', 'pjh2568@naver.com', 'yes'),
+(6, 'admin_email', 'kij753@naver.com', 'yes'),
 (7, 'start_of_week', '1', 'yes'),
 (8, 'use_balanceTags', '0', 'yes'),
 (9, 'use_smilies', '1', 'yes'),

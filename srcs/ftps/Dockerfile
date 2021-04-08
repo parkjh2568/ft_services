@@ -1,11 +1,8 @@
 FROM alpine:3.12
 
-
-#한국에서 속도가 빠른 mirror페이지에서 apk add 작업
-sed -i "s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g" /etc/apk/repositories
-RUN apk add openssl
-RUN apk add vsftpd
-
+#한국에서 속도가 빠른 --repository=https://mirrors.ustc.edu.cn/alpine/latest-stable/community/ 미러를 이용
+RUN apk add openssl 
+RUN apk add vsftpd 
 
 
 COPY srcs/openssl.conf /etc/ssl/private/

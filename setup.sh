@@ -1,9 +1,21 @@
 #!/bin/env bash -e
 
 RED="\033[31m"
+BLUE="\033[34m"
+B_BLUE="\033[34;1m"
+B_GREEN="\033[31;1m"
 BOLD="\033[01m"
 WHITE="\033[0m"
 
+echo $B_BLUE
+echo "
+███████╗████████╗     ███████╗███████╗██████╗ ██╗   ██╗██╗ ██████╗███████╗
+██╔════╝╚══██╔══╝     ██╔════╝██╔════╝██╔══██╗██║   ██║██║██╔════╝██╔════╝
+█████╗     ██║        ███████╗█████╗  ██████╔╝██║   ██║██║██║     █████╗
+██╔══╝     ██║        ╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██║██║     ██╔══╝
+██║        ██║███████╗███████║███████╗██║  ██║ ╚████╔╝ ██║╚██████╗███████╗
+╚═╝        ╚═╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝╚══════╝
+"
 echo $RED
 echo $BOLD
 echo  "Start Build Minikube(Virtualbox)"
@@ -13,8 +25,8 @@ export MINIKUBE_HOME=~/goinfre
 
 #docker pull k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
 
-minikube delete
-minikube start --driver=virtualbox
+#minikube delete
+#minikube start --driver=virtualbox
 
 eval $(minikube docker-env)
 MINIKUBE_IP=$(minikube ip)

@@ -15,7 +15,7 @@ kubectl delete -f ./srcs/yaml_active/ftps.yaml
 kubectl delete -f ./srcs/yaml_active/mysql.yaml
 kubectl delete -f ./srcs/yaml_active/wordpress.yaml
 kubectl delete -f ./srcs/yaml_active/phpmyadmin.yaml
-minikube delete
+#minikube delete
 
 echo $RED
 echo $BOLD

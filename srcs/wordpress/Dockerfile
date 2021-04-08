@@ -1,8 +1,8 @@
 FROM alpine:3.12.0
-#한국에서 속도가 빠른 mirror페이지에서 apk add 작업
-sed -i "s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g" /etc/apk/repositories
+
+#RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g" /etc/apk/repositories
 RUN apk update \
-		&& apk add nginx \
+		&& apk --update --no-cache add nginx \
 				php7 php7-fpm php7-mbstring php7-session \
 				php7-common php7-iconv php7-json php7-gd php7-curl php7-xml \
 				php7-mysqli php7-imap php7-cgi fcgi php7-pdo php7-pdo_mysql \
@@ -23,10 +23,10 @@ RUN tar -xvf latest.tar.gz
 RUN	rm -f latest.tar.gz
 RUN	mv wordpress/ /var/www/
 RUN mkdir -p /run/nginx
-COPY srcs/wp-config.php /var/www/wordpress/
-COPY srcs/default.conf /etc/nginx/conf.d/
-COPY srcs/wordpress.sql /wordpress.sql
-COPY srcs/wordpress_setup.sh /wordpress_setup.sh
+COPY wp-config.php /var/www/wordpress/
+COPY default.conf /etc/nginx/conf.d/
+COPY wordpress.sql /wordpress.sql
+COPY wordpress_setup.sh /wordpress_setup.sh
 RUN chmod +x /wordpress_setup.sh
 
 EXPOSE 5050
