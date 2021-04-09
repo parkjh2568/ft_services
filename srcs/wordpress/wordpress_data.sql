@@ -107,8 +107,8 @@ CREATE TABLE `wp_options` (
 --
 
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
-(1, 'siteurl', 'https://MINIKUBE_IP:5050', 'yes'),
-(2, 'home', 'https://MINIKUBE_IP:5050', 'yes'),
+(1, 'siteurl', 'http://MINIKUBE_IP:5050', 'yes'),
+(2, 'home', 'http://MINIKUBE_IP:5050', 'yes'),
 (3, 'blogname', 'junhypar', 'yes'),
 (4, 'blogdescription', '다른 워드프래스 사이트', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
