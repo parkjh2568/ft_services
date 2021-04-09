@@ -4,7 +4,7 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g" /etc/apk/repositorie
 RUN apk update \
 	&& apk --update --no-cache add \
 	grafana \
-	--repository https://dl-cdn.alpinelinux.org/alpine/latest-stable/community/
+	--repository https://mirrors.ustc.edu.cn/alpine/latest-stable/community/
 #repository 는 Alpine linux ERROR: unsatisfiable constraints: docker (missing): required by: world[docker] 오류해결을 위해.
 #출처: https://neet.tistory.com/entry/Alpine-linux-ERROR-unsatisfiable-constraints-docker-missing-required-by-worlddocker-오류-해결방법 [자택경비대]
 
