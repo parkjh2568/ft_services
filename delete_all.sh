@@ -43,7 +43,8 @@ docker rmi -f $(docker images grafana -q)
 docker rmi -f $(docker images alpine -q)
 
 rm ./srcs/yaml_active/*.yaml
-
+rm ./srcs/wordpress/wordpress.sql
+rm ./srcs/nginx/srcs/nginx.conf
 
 #minikube delete
 

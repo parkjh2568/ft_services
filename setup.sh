@@ -57,6 +57,11 @@ echo $BOLD
 echo "Docker Build"
 echo $WHITE
 
+
+sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/nginx/srcs/nginx_data.conf > ./srcs/nginx/srcs/nginx.conf
+
+sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/wordpress/wordpress_data.sql > ./srcs/wordpress/wordpress.sql
+
 docker build -t nginx srcs/nginx #> /dev/null 2>&1 ;;> /dev/null은 이과정의 메시지를 화면에표시하지않게해주는 명령어 2>&1 은 이과정중 나오는 에러메시지까지 다 가려주는 커멘드(안쓸꺼임)
 docker build -t ftps srcs/ftps
 docker build -t mysql srcs/mysql
