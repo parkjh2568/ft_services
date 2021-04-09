@@ -1,4 +1,4 @@
-FROM alpine:3.12.0
+FROM alpine:3.12
 
 #RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g" /etc/apk/repositories
 RUN apk --update --no-cache add php7 php7-fpm php7-opcache php7-gd php7-mysqli \

@@ -62,6 +62,9 @@ docker build -t ftps srcs/ftps
 docker build -t mysql srcs/mysql
 docker build -t phpmyadmin srcs/phpmyadmin
 docker build -t wordpress srcs/wordpress
+docker build -t influxdb srcs/influxdb
+docker build -t telegraf srcs/telegraf
+docker build -t grafana srcs/grafana
 
 
 echo $RED
@@ -81,6 +84,11 @@ echo $WHITE
 cp ./srcs/yaml_format/mysql-format.yaml ./srcs/yaml_active/mysql.yaml
  sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/yaml_format/wordpress-format.yaml > ./srcs/yaml_active/wordpress.yaml
  sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/yaml_format/phpmyadmin-format.yaml > ./srcs/yaml_active/phpmyadmin.yaml
+cp ./srcs/yaml_format/influxdb-format.yaml ./srcs/yaml_active/influxdb.yaml
+cp ./srcs/yaml_format/telegraf-format.yaml ./srcs/yaml_active/telegraf.yaml
+sed "s/MINIKUBE_IP/$MINIKUBE_IP/g" ./srcs/yaml_format/grafana-format.yaml > ./srcs/yaml_active/grafana.yaml
+
+
 
 kubectl apply -f ./srcs/yaml_active/metalLB.yaml
 kubectl apply -f ./srcs/yaml_active/nginx.yaml
@@ -88,6 +96,11 @@ kubectl apply -f ./srcs/yaml_active/ftps.yaml
 kubectl apply -f ./srcs/yaml_active/mysql.yaml
 kubectl apply -f ./srcs/yaml_active/phpmyadmin.yaml
 kubectl apply -f ./srcs/yaml_active/wordpress.yaml
+kubectl apply -f ./srcs/yaml_active/influxdb.yaml
+kubectl apply -f ./srcs/yaml_active/telegraf.yaml
+kubectl apply -f ./srcs/yaml_active/grafana.yaml
+
+sh wordpress_setup.sh
 
 echo $RED
 echo $BOLD

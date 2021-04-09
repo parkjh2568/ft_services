@@ -1,5 +1,5 @@
 # lastest 버젼으로 하면 당겨올때 문제가 생김.
-FROM alpine:3.12.0
+FROM alpine:3.12
 
 #RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g" /etc/apk/repositories
 RUN apk add mysql mysql-client
