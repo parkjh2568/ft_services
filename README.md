@@ -11,3 +11,7 @@ https://github.com/parkjh2568/9.ft_services.git
 cd 9.ft_services
 sh setup.sh
 ```
+
+-----
+
+minikube, kubctl 설치 필요
